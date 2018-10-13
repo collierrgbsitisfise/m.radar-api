@@ -1,0 +1,1 @@
+export { PingControllers } from './ping.controller';
