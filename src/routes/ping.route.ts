@@ -6,4 +6,4 @@ router.get('/', (req: Request, res: Response) => {
     res.send('pong');
 });
 
-export const PingControllers: Router = router;
+export const PingRoutes: Router = router;
