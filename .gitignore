@@ -3,3 +3,5 @@
 
 #ts compiled output
 /dist
+
+.vscode/
