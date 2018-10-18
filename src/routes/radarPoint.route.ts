@@ -1,18 +1,9 @@
-import { Router, Request, Response } from 'express';
-import * as expressJoi from 'express-joi-validation';
-import * as Joi from 'joi';
+import { Router } from 'express';
 import { createRadarPointController } from './../controllers/'
-
-const validator= expressJoi({});
+import { PostRadarPointbodySchema } from './../validators';
 
 const router: Router = Router();
 
-const bodySchema = Joi.object({
-    latitude: Joi.number().required(),
-    longitude: Joi.number().required(),
-    informator: Joi.string().default('anonymous')
-});
-
-router.post('/', validator.body(bodySchema), createRadarPointController);
+router.post('/', PostRadarPointbodySchema, createRadarPointController);
 
 export const RadarPointRoutes: Router = router;

@@ -1,0 +1,1 @@
+export { PostRadarPointbodySchema } from './radarPoint.validator';
