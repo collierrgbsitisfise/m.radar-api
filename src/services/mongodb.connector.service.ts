@@ -27,6 +27,7 @@ class mongoDbConnector {
         const dbUrl = this.formatConnectionUrl();
 
         const connectPromise = function (resolve: any, reject: any): any {
+            mongoose.set('useCreateIndex', true)
             mongoose.connect(
                 dbUrl,
                 { useNewUrlParser: true },

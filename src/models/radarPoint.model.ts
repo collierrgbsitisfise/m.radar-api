@@ -23,6 +23,8 @@ radarPointSchema.pre("save", function preSave(this: any, next) {
   next(null);
 });
 
+radarPointSchema.index({location: '2dsphere'});
+
 const radarPoint = mongoose.model("radarPoint", radarPointSchema);
 
 export default radarPoint;

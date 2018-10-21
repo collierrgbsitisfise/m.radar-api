@@ -4,4 +4,8 @@
 #ts compiled output
 /dist
 
+#vscode settings
 .vscode/
+
+#local helpers
+.helpers.txt
