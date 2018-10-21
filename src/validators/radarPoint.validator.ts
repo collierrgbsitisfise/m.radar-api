@@ -8,3 +8,9 @@ export const PostRadarPointbodySchema = validator.body(Joi.object({
     longitude: Joi.number().required(),
     informator: Joi.string().default('anonymous')
 }));
+
+export const GetRadarPointsByRadiusQuerySchema = validator.query(Joi.object({
+    latitude: Joi.number().required(),
+    longitude: Joi.number().required(),
+    radius: Joi.number().required()
+}));

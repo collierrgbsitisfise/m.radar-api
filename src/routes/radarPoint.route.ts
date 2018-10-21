@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { Request, Response } from 'express';
-import { createRadarPointController, getRadarPointController } from './../controllers/'
-import { PostRadarPointbodySchema } from './../validators';
+import { createRadarPointController, getRadarPointController, getRadarPointByradiusController } from './../controllers/'
+import { PostRadarPointbodySchema, GetRadarPointsByRadiusQuerySchema } from './../validators';
 
 const router: Router = Router();
 
 router.post('/', PostRadarPointbodySchema, createRadarPointController);
-router.get('/', getRadarPointController);
+router.get('/', GetRadarPointsByRadiusQuerySchema, getRadarPointByradiusController);
+router.get('/all', getRadarPointController);
 
 export const RadarPointRoutes: Router = router;
