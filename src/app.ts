@@ -5,7 +5,7 @@ import mongoDbConnector from "./services/mongodb.connector.service";
 
 const app: express.Application = express();
 
-const port: number = +process.env.PORT || 3000;
+const port: number = +process.env.PORT || 5525;
 
 const db = new mongoDbConnector("radar");
 db.connect()

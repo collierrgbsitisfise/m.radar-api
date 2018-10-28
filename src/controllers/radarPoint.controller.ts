@@ -1,7 +1,7 @@
 import * as url from "url";
 import { Request, Response } from "express";
 import { radarPoint } from "./../models";
-import gMapService from './../services/gMap.service';
+import gMapService from "./../services/gMap.service";
 
 const RADIUS_OF_EARTH_IN_KM = 6371; // km
 const kmToRadian = (km: number) => km / RADIUS_OF_EARTH_IN_KM;
@@ -67,13 +67,17 @@ export const getgMapLink = async (req: Request, res: Response) => {
         }
       }
     });
-  
-    const  gApiKey = '';
-    
-    let gMap = new gMapService(gApiKey, {
-      latitude,
-      longitude
-    }, 'roadmap');
+
+    const gApiKey = "AIzaSyAoNsfuomFR9sqJThzQvZuTAZQp61Gaa9o";
+
+    let gMap = new gMapService(
+      gApiKey,
+      {
+        latitude,
+        longitude
+      },
+      "roadmap"
+    );
 
     const markers = points.map((item: any) => ({
       latitude: item.location.coordinates[0],
@@ -81,11 +85,11 @@ export const getgMapLink = async (req: Request, res: Response) => {
     }));
 
     gMap.setMarker(markers);
-  
-    const result = gMap.generateMapLink();
+
+    const result = gMap.generateMapLink(radius);
 
     res.send(result);
   } catch (err) {
     res.status(500).send(err);
   }
-}
+};
