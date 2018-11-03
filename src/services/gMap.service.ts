@@ -18,8 +18,8 @@ class gMapService {
     this.markers = markers;
   }
 
-  private getZoomFromRadius(r: number): number | strign {
-    const mapper = {
+  private getZoomFromRadius(r: number): number | string {
+    const mapper: any = {
       10: 16,
       20: 14,
       40: 12,
