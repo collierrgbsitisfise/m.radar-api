@@ -24,7 +24,7 @@ class gMapService {
       20: 14,
       40: 12,
       60: 10,
-      80: 8
+      80: 9
     };
 
     return mapper[String(r)] || 22;
