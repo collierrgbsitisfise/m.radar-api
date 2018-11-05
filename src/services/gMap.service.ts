@@ -20,11 +20,11 @@ class gMapService {
 
   private getZoomFromRadius(r: number): number | string {
     const mapper: any = {
-      2: 16,
-      5: 15,
-      10: 14,
-      30: 13,
-      50: 12
+      2: 14,
+      5: 13,
+      10: 12,
+      30: 11,
+      50: 10
     };
 
     return mapper[String(r)] || 22;
