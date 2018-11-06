@@ -12,7 +12,7 @@ const port: number = +process.env.PORT || 5525;
 const db = new mongoDbConnector("radar");
 db.connect()
   .then(res => {
-    const cronJR = new CronJobRunner(120, radarPoint);
+    const cronJR = new CronJobRunner(120 * 3, radarPoint);
     cronJR.startJob();
   })
   .catch(err => console.log("Error db connection...", err));
