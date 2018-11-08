@@ -27,7 +27,7 @@ class gMapService {
       50: 10
     };
 
-    return mapper[String(r)] || 22;
+    return mapper[String(r)] || 10;
   }
 
   private getMarketsForAsQParams(): string {

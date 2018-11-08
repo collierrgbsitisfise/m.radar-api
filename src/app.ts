@@ -2,7 +2,7 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { PingRoutes, RadarPointRoutes } from "./routes";
 import mongoDbConnector from "./services/mongodb.connector.service";
-import CronJobRunner from "./services/cronJobRunner";
+import CronJobRunner from "./services/cronJobRunner.serive";
 import radarPoint from "./cronJobs/deletePoints.job";
 
 const app: express.Application = express();
@@ -25,3 +25,15 @@ app.use("/radar-point", RadarPointRoutes);
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/`);
 });
+
+//PHP SID
+// mvn1bvurhiu01r49f0javfsaa6;
+
+//_ga
+//GA1.2.1801841140.1541267577
+
+//_gid
+//GA1.2.134592514.1541617165
+
+//i know magic
+//vMjxqVwjxoy7xpbEVt6dfHeh%2BFEA%2BIZ%2F0WuwMPNa95yVlfM6AcXzug%3D%3D

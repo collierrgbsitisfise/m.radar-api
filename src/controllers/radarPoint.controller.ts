@@ -8,7 +8,7 @@ const kmToRadian = (km: number) => km / RADIUS_OF_EARTH_IN_KM;
 
 export const createRadarPoint = async (req: Request, res: Response) => {
   try {
-    const { informator, latitude, longitude } = req.body;
+    const { informator, latitude, longitude, typePoint } = req.body;
 
     const location = {
       type: "Point",
@@ -17,7 +17,8 @@ export const createRadarPoint = async (req: Request, res: Response) => {
 
     const newRadarPoint = new radarPoint({
       informator,
-      location
+      location,
+      typePoint
     });
 
     const result = await newRadarPoint.save();

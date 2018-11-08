@@ -15,6 +15,11 @@ const radarPointSchema = new SchemaM({
   location: {
     type: pointSchema,
     required: true
+  },
+  typePoint: {
+    type: String,
+    enum: ["patrol", "policePost"],
+    default: "policePost"
   }
 });
 
@@ -23,7 +28,7 @@ radarPointSchema.pre("save", function preSave(this: any, next) {
   next(null);
 });
 
-radarPointSchema.index({location: '2dsphere'});
+radarPointSchema.index({ location: "2dsphere" });
 
 const radarPoint = mongoose.model("radarPoint", radarPointSchema);
 

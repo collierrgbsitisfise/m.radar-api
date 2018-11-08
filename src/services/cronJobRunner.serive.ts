@@ -11,6 +11,7 @@ class CronJobRunner {
 
   public startJob() {
     cron.schedule(`*/${this.repeatOncePerMinute} * * * *`, () => {
+      console.log("RUN CROD: ", new Date());
       this.job();
     });
   }
