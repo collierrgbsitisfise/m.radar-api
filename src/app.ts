@@ -2,7 +2,7 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { PingRoutes, RadarPointRoutes } from "./routes";
 import mongoDbConnector from "./services/mongodb.connector.service";
-import CronJobRunner from "./services/cronJobRunner.serive";
+import CronJobRunner from "./services/cronJobRunner.service";
 import radarPoint from "./cronJobs/deletePoints.job";
 
 const app: express.Application = express();

@@ -82,7 +82,8 @@ export const getgMapLink = async (req: Request, res: Response) => {
 
     const markers = points.map((item: any) => ({
       latitude: item.location.coordinates[0],
-      longitude: item.location.coordinates[1]
+      longitude: item.location.coordinates[1],
+      type: item.typePoint
     }));
 
     gMap.setMarker(markers);

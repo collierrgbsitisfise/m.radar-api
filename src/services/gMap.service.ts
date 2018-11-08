@@ -33,9 +33,11 @@ class gMapService {
   private getMarketsForAsQParams(): string {
     return this.markers.reduce(
       (acc, curr) =>
-        (acc += `markers=color:red%7Clabel:C%7C${curr.latitude},${
-          curr.longitude
-        }&`),
+        (acc += `markers=${
+          (curr as any).type === "patrol"
+            ? "color:orange%7Clabel:P%7C"
+            : "color:red%7Clabel:C%7C"
+        }${curr.latitude},${curr.longitude}&`),
       ""
     );
   }
