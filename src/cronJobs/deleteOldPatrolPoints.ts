@@ -1,16 +1,16 @@
 import { radarPoint } from "./../models";
 
-const TwoHoursSeconds = 7200;
+const HalfHoursSeconds = 1800;
 
-export default async function deleteOldPoints() {
+export default async function deleteOldPatrolPoints() {
   const points = await radarPoint.find({
-    typePoint: "policePost"
+    typePoint: "patrol"
   });
   points.forEach(async (point: any) => {
     const inSeconds = +new Date(point.time);
     const currentTime = +new Date();
 
-    if (currentTime - inSeconds > TwoHoursSeconds) {
+    if (currentTime - inSeconds > HalfHoursSeconds) {
       radarPoint
         .find({ _id: point._id })
         .remove()
@@ -18,9 +18,3 @@ export default async function deleteOldPoints() {
     }
   });
 }
-
-// typePoint: {
-//   type: String,
-//     enum: ["patrol", "policePost"],
-//     default: "policePost"
-// }

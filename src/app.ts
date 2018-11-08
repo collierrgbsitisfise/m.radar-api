@@ -3,7 +3,8 @@ import * as bodyParser from "body-parser";
 import { PingRoutes, RadarPointRoutes } from "./routes";
 import mongoDbConnector from "./services/mongodb.connector.service";
 import CronJobRunner from "./services/cronJobRunner.service";
-import radarPoint from "./cronJobs/deletePoints.job";
+import deleteOldPoints from "./cronJobs/deletePoints.job";
+import deleteOldPatrolPoints from "./cronJobs/deleteOldPatrolPoints";
 
 const app: express.Application = express();
 
@@ -12,8 +13,11 @@ const port: number = +process.env.PORT || 5525;
 const db = new mongoDbConnector("radar");
 db.connect()
   .then(res => {
-    const cronJR = new CronJobRunner(120 * 3, radarPoint);
+    const cronJR = new CronJobRunner(120, deleteOldPoints);
     cronJR.startJob();
+
+    const cronJobDeltePatrol = new CronJobRunner(30, deleteOldPatrolPoints);
+    cronJobDeltePatrol.startJob();
   })
   .catch(err => console.log("Error db connection...", err));
 
